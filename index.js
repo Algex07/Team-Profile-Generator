@@ -2,6 +2,8 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
+const fs = require("fs");
+const team = [];
 
 
 
@@ -10,29 +12,31 @@ function mainMenu(){
         {
             type: "list",
             name: "memberChoice",
-            message: "What would you like to do?",
+            message: "Who would you like to do?",
             choices: ["Add Engineer", "Add Intern,", "Add Manager", "Quit"]
         }
     ]).then(answers =>{
-        if(answers.memberChoice === "Add Engineer"){
-            // fire off the function to create engineer
-       
-             createEngineer()
+        if(answers.memberChoice === "Add Engineer"){ 
+            function createEngineer()      
+             console.log (createEngineer)
                 // fire off the function to create engineer
             }if(answers.memberChoice === "Add Intern,")
-            {createIntern()
+            { createIntern()
+                console.log(createIntern)
 
             }if (answers.memberChoice === "Add Manager") {
                 createManager()
+                console.log(createManager)
             } else (answers.memberChoice === "Quit") 
-                createTeam()
-            
-                          
-    })
-        
-    }
+            createTeam
+        })   
+    
+}
+           
+         
+    
 
-    const team = [];
+   
 function createTeam(){
 
     function createManager(){
@@ -64,11 +68,18 @@ function createTeam(){
             console.log("team", team)
             console.log(manager)
             mainMenu()
-        })
-    }
-        createManager();
+        
+          
+              
 
-}
+        })
+        
+    }
+    createManager()
+
+    
+} 
+
 
 function createEngineer(){
 
@@ -86,23 +97,24 @@ function createEngineer(){
         {
             type: "input",
             name: "engineerEmail",
-            message: "What is the team engineer's github email?"
+            message: "What is the team engineer's email?"
         },
         {
             type: "input",
-            name: "engineerOfficeNumber",
-            message: "What is the team engineer's office number?"
+            name: "engineerGithub",
+            message: "What is the team engineer's github username?"
         },
     ]).then(answers =>{
-        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerOfficeNumber)
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
         team.push(engineer)
         console.log("team", team)
         console.log(engineer)
         mainMenu()
-       
-})
-createEngineer()
+    }) 
 }
+createEngineer()
+
+
 
 function createIntern(){
 
@@ -124,20 +136,27 @@ function createIntern(){
         },
         {
             type: "input",
-            name: "internOfficeNumber",
-            message: "What is the team intern's office number?"
+            name: "internSchool",
+            message: "What is the team intern's school name?"
         },
     ]).then(answers =>{
-        const intern = new Intern(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerOfficeNumber)
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
         team.push(intern)
         console.log("team", team)
         console.log(intern)
         mainMenu()
-       
-})
+    })
+}   
 createIntern()
-}
+    
+            
+
 
     
-mainMenu()  
+
+
+mainMenu()
+
+    
+  
  
