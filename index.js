@@ -3,57 +3,13 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
+const path = require("path")
 const team = [];
 
-const generateHTML = (answers) =>
-`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Team Generator</title>
-</head>
-<body>
-  <header class="bg-info jumbotron jumbotron-fluid " style="--bs-bg-opacity: .5;">
-  <div class="container">
-    <h1 class="display-4 text-center " >My Team</h1>
-  </header>
-  
-  <div class="container bg-light">
-  <div class="row align-items-start">
-    <div class="col">
-      Managers Profiles
-      <ul class="list-group">
-      <li class="list-group-item">Name: ${answers.managerName}</li>
-      <li class="list-group-item">ID: ${answers.managerId}</li>
-      <li class="list-group-item">Email: ${answers.managerEmail}</li>
-      <li class="list-group-item">Phone number: ${answers.managerOfficeNumber}</li>
-    </ul>
-    </div>
-    <div class="col">
-      Engineers Profiles
-      <ul class="list-group">
-      <li class="list-group-item">Name: ${answers.engineerName}</li>
-      <li class="list-group-item">ID: ${answers.engineerId}</li>
-      <li class="list-group-item">Email: ${answers.engineerEmail}</li>
-      <li class="list-group-item">LinkedIn:Github: ${answers.engineerGithub}</li>
-    </ul>
-    </div>
-    <div class="col">
-      Interns Profiles
-      <ul class="list-group">
-      <li class="list-group-item">Name: ${answers.internName}</li>
-      <li class="list-group-item">ID: ${answers.internId}</li>
-      <li class="list-group-item">Email: ${answers.internEmail}</li>
-      <li class="list-group-item">School: ${answers.internSchool}</li>
-    </ul>
-    </div>
-  </div>
-</div>
-</body>
-</html>`;
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "index.html");
 
+const render = require("./src/template.js");
 
 
 function mainMenu(){
@@ -88,8 +44,8 @@ function mainMenu(){
                     name: "engineerGithub",
                     message: "What is the team engineer's Github?"
                 },
-            ]).then(answers =>{
-                const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub)
+            ]).then(response =>{
+                const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub)
                 team.push(engineer)
                 console.log("team", team)
                 console.log(engineer)
@@ -124,8 +80,8 @@ function mainMenu(){
                         name: "internSchool",
                         message: "What is the team intern's school?"
                     },
-                ]).then(answers =>{
-                    const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
+                ]).then(response =>{
+                    const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
                     team.push(intern)
                     console.log("team", team)
                     console.log(intern)
@@ -160,8 +116,8 @@ function mainMenu(){
                             name: "managerOfficeNumber",
                             message: "What is the team manager's office number?"
                         },
-                    ]).then(answers =>{
-                        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber)
+                    ]).then(response =>{
+                        const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOfficeNumber)
                         team.push(manager)
                         console.log("team", team)
                         console.log(manager)
@@ -176,27 +132,23 @@ function mainMenu(){
                 
                 createManager()
                
-            } else (answers.memberChoice === "None, Save and exit!"); {function createTeam(){
+            } if (answers.memberChoice === "None, Save and exit!"){ 
                    
-                ((answers) => {
-                    const htmlPageContent = generateHTML(answers);
+                if(!fs.existsSync(OUTPUT_DIR)){
+                    fs.mkdirSync(OUTPUT_DIR)
+                }
+                fs.writeFileSync(outputPath, render(team))
                 
-                    fs.writeFile('index.html', htmlPageContent, (err) =>
-                      err ? console.log(err) : console.log('Successfully created index.html!')
-                    );
-                  });
                 
-            } 
-
-            }
+        }        
             
-            createTeam()
+            // createTeam()
             
             
-        })   
+          
     
-}
-           
+})
+}          
     
 
    

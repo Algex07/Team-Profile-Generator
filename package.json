@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  },
+  "scripts": {
+    "test": "\"jest --verbose test/*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Algex07/Team-Profile-Generator.git"
+  },
+  "author": "Amar Algu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Algex07/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Algex07/Team-Profile-Generator#readme"
+}
