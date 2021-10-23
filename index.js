@@ -18,7 +18,7 @@ function mainMenu(){
             type: "list",
             name: "memberChoice",
             message: "Who would you like to add?",
-            choices: ["Add Engineer", "Add Intern,", "Add Manager", "None, Save and exit!"]
+            choices: ["Add Manager", "Add Engineer", "Add Intern", "None, Save and exit!"]
         }
     ]).then(answers =>{
         if(answers.memberChoice === "Add Engineer"){ function createEngineer(){
@@ -56,7 +56,7 @@ function mainMenu(){
              
              
                 // fire off the function to create engineer
-            }if(answers.memberChoice === "Add Intern,")
+            }if(answers.memberChoice === "Add Intern")
             { function createIntern(){
 
                 inquirer.prompt([

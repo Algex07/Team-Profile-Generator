@@ -2,34 +2,42 @@ const generateHTML = (team) => {
 
 
     const generateManager = manager =>{
-    return `<div class="card">
-      Managers Profiles
+      return `<div class="card-deck p-3"style="width: 21rem;">
+      <div class="card bg-primary p-2">
+      <div class="card-header bg-info ">Managers Profiles</div>
+      
       <p>Name: ${manager.getName()}</p>
       <p>ID: ${manager.getId()}</p>
       <p>Email: ${manager.getEmail()}</p>
       <p>Phone number: ${manager.getOfficeNumber()}</p>
+    </div>
     </div>`
 
     }
 
     const generateEngineer = engineer => {
 
-    return `<div class="card">
-      Engineers Profiles
+    return `<div class="card-deck p-3"style="width: 21rem;">
+    <div class="card bg-primary p-2">
+     <div class="card-header bg-info "> Engineers Profiles</div>
       <p>Name: ${engineer.getName()}</p>
       <p>ID: ${engineer.getId()}</p>
       <p>Email: ${engineer.getEmail()}</p>
       <p>Github: ${engineer.getGithub()}</p>
+    </div>
     </div>`
     }
 
     const generateIntern = intern => {
-    return `<div class="card">
-      Interns Profiles
+    return `<div class="card-deck p-3 "style="width: 21rem;">
+    <div class="card bg-primary p-2 ">
+    <div class="card-header bg-info">Interns Profiles </div>
+      
       <p>Name: ${intern.getName()}</p>
       <p>ID: ${intern.getId()}</p>
       <p>Email: ${intern.getEmail()}</p>
       <p>School: ${intern.getSchool()}</p>
+    </div>
     </div>`
     }
 
