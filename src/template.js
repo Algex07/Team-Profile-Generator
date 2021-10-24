@@ -2,13 +2,13 @@ const generateHTML = (team) => {
 
 
     const generateManager = manager =>{
-      return `<div class="card-deck p-3"style="width: 21rem;">
-      <div class="card bg-primary p-2">
-      <div class="card-header bg-info ">Managers Profiles</div>
+      return `<div class="card-deck p-4"style="width: 22rem;">
+      <div class="card bg-light p-2">
+      <div class="card-header bg-primary ">Manager Profile</div>
       
       <p>Name: ${manager.getName()}</p>
       <p>ID: ${manager.getId()}</p>
-      <p>Email: ${manager.getEmail()}</p>
+      Email:<a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
       <p>Phone number: ${manager.getOfficeNumber()}</p>
     </div>
     </div>`
@@ -17,25 +17,25 @@ const generateHTML = (team) => {
 
     const generateEngineer = engineer => {
 
-    return `<div class="card-deck p-3"style="width: 21rem;">
-    <div class="card bg-primary p-2">
-     <div class="card-header bg-info "> Engineers Profiles</div>
+    return `<div class="card-deck p-4"style="width: 22rem;">
+    <div class="card bg-light p-2">
+     <div class="card-header bg-primary "> Engineer Profile</div>
       <p>Name: ${engineer.getName()}</p>
       <p>ID: ${engineer.getId()}</p>
-      <p>Email: ${engineer.getEmail()}</p>
-      <p>Github: ${engineer.getGithub()}</p>
+      Email:<a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+      Github:<a href="https://github.com/${engineer.getGithub()}"target="_blank">${engineer.getGithub()}</a>
     </div>
     </div>`
     }
 
     const generateIntern = intern => {
-    return `<div class="card-deck p-3 "style="width: 21rem;">
-    <div class="card bg-primary p-2 ">
-    <div class="card-header bg-info">Interns Profiles </div>
+    return `<div class="card-deck p-4"style="width: 22rem;">
+    <div class="card bg-light p-2 ">
+    <div class="card-header bg-primary">Intern Profile </div>
       
       <p>Name: ${intern.getName()}</p>
       <p>ID: ${intern.getId()}</p>
-      <p>Email: ${intern.getEmail()}</p>
+      Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
       <p>School: ${intern.getSchool()}</p>
     </div>
     </div>`
@@ -66,7 +66,7 @@ module.exports = team => {
   <title>Team Generator</title>
 </head>
 <body>
-  <header class="bg-info jumbotron jumbotron-fluid " style="--bs-bg-opacity: .5;">
+  <header class="bg-light jumbotron jumbotron-fluid " style="--bs-bg-opacity: .5;">
   <div class="container">
     <h1 class="display-4 text-center " >My Team</h1>
   </header>
