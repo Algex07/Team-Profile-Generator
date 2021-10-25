@@ -20,7 +20,7 @@
   npm i, fs, jest testing
 
   ## Purpose:
-  To create you team members so you have direct access to anyone belonging to the team. You could also check reposotories and contact your members by email. basically creating cards very organize to get quick access to your team.
+  To create you team members so you have direct access to anyone belonging to the team. You could also check reposotories and contact your members by email. Basically creating cards very organize to get quick access to your team.
 
   ## Licenses:
   None
