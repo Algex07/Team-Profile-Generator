@@ -42,4 +42,4 @@
    https://drive.google.com/file/d/16O2Eo9738aYLkCNm8rN9KTbyKqrzxrtm/view?usp=sharing,
    ### index.html file
   https://docs.google.com/document/d/1tEGm7cJpoNgj7U27wQoCSTRJmih_1HQaMyuL-b8x-CI/edit?usp=sharing
-  
+  ![team profile pic](https://github.com/Algex07/Team-Profile-Generator/blob/main/Assets/Team-Pic.jpg?raw=true)
